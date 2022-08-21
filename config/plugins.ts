@@ -1,4 +1,9 @@
 export default ({ env }) => ({
+  graphql: {
+    config: {
+      playgroundAlways: true,
+    },
+  },
   upload: {
     config: {
       provider: 'cloudinary',
