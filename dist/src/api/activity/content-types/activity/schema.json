@@ -1,0 +1,58 @@
+{
+    "kind": "collectionType",
+    "collectionName": "activities",
+    "info": {
+        "singularName": "activity",
+        "pluralName": "activities",
+        "displayName": "Activity"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "name": {
+            "type": "string",
+            "required": true,
+            "minLength": 2,
+            "maxLength": 500
+        },
+        "url": {
+            "type": "string",
+            "regex": "(https?:\\/\\/(?:www\\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|www\\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|https?:\\/\\/(?:www\\.|(?!www))[a-zA-Z0-9]+\\.[^\\s]{2,}|www\\.[a-zA-Z0-9]+\\.[^\\s]{2,})"
+        },
+        "images": {
+            "allowedTypes": [
+                "images"
+            ],
+            "type": "media",
+            "multiple": true
+        },
+        "priority": {
+            "type": "integer",
+            "default": 1,
+            "required": true,
+            "max": 3,
+            "min": 1
+        },
+        "wasVisited": {
+            "type": "boolean",
+            "default": false
+        },
+        "plannedDate": {
+            "type": "datetime"
+        },
+        "satisfaction": {
+            "type": "integer",
+            "required": false,
+            "max": 5,
+            "min": 1
+        },
+        "place": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::place.place",
+            "inversedBy": "activities"
+        }
+    }
+}

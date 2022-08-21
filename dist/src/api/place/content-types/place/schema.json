@@ -1,0 +1,29 @@
+{
+    "kind": "collectionType",
+    "collectionName": "places",
+    "info": {
+        "singularName": "place",
+        "pluralName": "places",
+        "displayName": "Place",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "name": {
+            "type": "string",
+            "required": true,
+            "unique": true,
+            "maxLength": 150,
+            "minLength": 2
+        },
+        "activities": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::activity.activity",
+            "mappedBy": "place"
+        }
+    }
+}
